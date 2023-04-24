@@ -2,26 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.hover-base {
+  @apply transition-colors ease-in-out duration-300;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.link {
+  @apply hover-base text-sky-500 hover:text-sky-400;
+}
+
+.btn-base {
+  @apply hover-base py-2 px-4 rounded-md text-white/90 hover:text-white;
+}
+
+.fade-text {
+  opacity: 1;
+  animation: fade 1s infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
